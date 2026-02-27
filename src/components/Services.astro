@@ -1,0 +1,137 @@
+---
+const services = [
+  {
+    title: "Drenagem Linfática",
+    image: "https://www.sbd.org.br/wp-content/uploads/2022/06/Drenagem-linfatica-e-benefica-para-a-saude-shutterstock-1.webp",
+    description: "Estimula o sistema linfático para reduzir edemas, eliminar toxinas e melhorar a circulação.",
+    tag: "Saúde & Estética"
+  },
+  {
+    title: "Liberação Miofascial",
+    image: "https://clubepaineiras.org.br/wp-content/uploads/2024/02/27-3-Liberacao-Miofascial.jpg",
+    description: "Atua nas fáscias musculares para devolver mobilidade e aliviar tensões profundas.",
+    tag: "Performance"
+  },
+  {
+    title: "Ventosas",
+    image: "https://blog.vitoriahoteis.com.br/wp-content/uploads/2025/09/sessao-terapia-ventosas-copos-costas.webp",
+    description: "Técnica milenar que melhora a circulação sanguínea e libera toxinas musculares.",
+    tag: "Recuperação"
+  },
+  {
+    title: "Pedras Quentes",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSjjHposbntb78kw3yhlym8FCT7R2NiAHTZA&s",
+    description: "Proporciona relaxamento profundo e alívio do estresse através do calor terapêutico.",
+    tag: "Bem-estar"
+  },
+  {
+    title: "Massagem Modeladora",
+    image: "https://biocap.com.br/wp-content/uploads/2023/11/foto_blog_Novembro_1024x641_01.png",
+    description: "Técnica vigorosa que auxilia na redução de medidas e melhora o contorno corporal.",
+    tag: "Estética"
+  },
+  {
+    title: "Skin Care",
+    image: "https://www.clinicaleger.com.br/wp-content/uploads/2020/01/rotina-skincare-cuidados-com-a-pele.jpg",
+    description: "Protocolos personalizados para manter a saúde e o brilho natural da sua pele.",
+    tag: "Beleza"
+  },
+  {
+    title: "Acupuntura",
+    image: "https://medicinasa.com.br/wp-content/uploads/2020/11/acupuntura.jpg",
+    description: "Equilíbrio energético e alívio de dores através de pontos estratégicos do corpo.",
+    tag: "Equilíbrio"
+  },
+  {
+    title: "Microagulhamento",
+    image: "https://hamonir.com.br/wp-content/uploads/2022/02/microagulhamento-no-rosto-1300x731.jpg",
+    description: "Estimula a produção de colágeno para rejuvenescimento e tratamento de cicatrizes.",
+    tag: "Rejuvenescimento"
+  }
+];
+---
+<section id="servicos" class="py-20 bg-[#FDFBF7]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="text-brand-terracotta text-[10px] font-bold uppercase tracking-[0.3em] mb-4 block">
+        Nossas Especialidades
+      </span>
+      <h2 class="text-5xl md:text-6xl mb-6">
+        Serviços de <span class="text-brand-sage italic font-light">Alta Performance</span>
+      </h2>
+      <p class="text-brand-ink/50 max-w-2xl mx-auto font-light text-lg">
+        Tratamentos exclusivos desenvolvidos para proporcionar resultados reais e uma experiência sensorial única.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {services.map((service) => (
+        <div class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-brand-gold/5 service-card">
+          <div class="h-64 overflow-hidden relative">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              referrerpolicy="no-referrer"
+              loading="lazy"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold uppercase tracking-widest text-brand-ink shadow-sm">
+                {service.tag}
+              </span>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl mb-3 group-hover:text-brand-terracotta transition-colors">{service.title}</h3>
+            <p class="text-brand-ink/50 text-sm leading-relaxed mb-6 font-light">{service.description}</p>
+            <!-- data-service is used by JS to build the WhatsApp message -->
+            <a
+              href="#"
+              data-service={service.title}
+              class="whatsapp-service-btn inline-flex items-center justify-center w-full py-3 bg-brand-terracotta text-white rounded-2xl text-[10px] font-bold uppercase tracking-widest hover:bg-brand-sage transition-all shadow-lg shadow-brand-terracotta/20"
+            >
+              Agendar
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s;
+  }
+  .service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Scroll reveal
+  const cards = document.querySelectorAll('.service-card');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => obs.observe(c));
+
+  // Dynamic WhatsApp links per service
+  const PHONE = '5551993975325';
+  document.querySelectorAll<HTMLAnchorElement>('.whatsapp-service-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const service = btn.getAttribute('data-service') ?? '';
+      const message = encodeURIComponent(`Olá! Quero agendar: ${service}`);
+      window.open(`https://wa.me/${PHONE}?text=${message}`, '_blank', 'noopener,noreferrer');
+    });
+  });
+</script>

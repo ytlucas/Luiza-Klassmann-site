@@ -1,0 +1,104 @@
+---
+// Navbar component - uses inline script for mobile menu toggle
+---
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#inicio" class="text-2xl font-serif font-bold tracking-tighter group">
+      <span class="text-brand-terracotta group-hover:text-brand-sage transition-colors duration-300">LUIZA</span>
+      <span class="text-brand-gold font-light italic ml-1">KLASSMANN</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-10">
+      {[
+        { name: 'Início', href: '#inicio' },
+        { name: 'Sobre', href: '#sobre' },
+        { name: 'Serviços', href: '#servicos' },
+        { name: 'Cursos', href: '#cursos' },
+        { name: 'Contato', href: '#contato' },
+      ].map((link) => (
+        <a
+          href={link.href}
+          class="text-[11px] uppercase tracking-[0.2em] font-bold hover:text-brand-terracotta transition-colors relative group"
+        >
+          {link.name}
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-terracotta transition-all group-hover:w-full"></span>
+        </a>
+      ))}
+      <a
+        href="#contato"
+        class="px-6 py-2.5 bg-brand-terracotta text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-sage transition-all shadow-md"
+      >
+        Agendar
+      </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button id="mobile-menu-btn" class="md:hidden text-brand-ink p-2" aria-label="Abrir menu">
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl overflow-hidden">
+    <div class="flex flex-col p-8 space-y-6">
+      {[
+        { name: 'Início', href: '#inicio' },
+        { name: 'Sobre', href: '#sobre' },
+        { name: 'Serviços', href: '#servicos' },
+        { name: 'Cursos', href: '#cursos' },
+        { name: 'Contato', href: '#contato' },
+      ].map((link) => (
+        <a
+          href={link.href}
+          class="mobile-link text-xl font-serif text-brand-ink hover:text-brand-terracotta transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-white/80', 'backdrop-blur-xl', 'py-3', 'shadow-lg');
+      navbar?.classList.remove('py-6');
+    } else {
+      navbar?.classList.remove('bg-white/80', 'backdrop-blur-xl', 'py-3', 'shadow-lg');
+      navbar?.classList.add('py-6');
+    }
+  });
+
+  // Mobile toggle
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconMenu?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+
+  // Close on link click
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconMenu?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    });
+  });
+</script>

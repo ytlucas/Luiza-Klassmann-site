@@ -1,0 +1,87 @@
+---
+// Testimonials/Depoimentos section
+const testimonials = [
+  {
+    tag: "Competência",
+    text: "Profissional extremamente competente, utiliza muita tecnologia e técnicas sempre atualizadas!! Eu super indico!!",
+    name: "Analícia Meller Conter",
+  },
+  {
+    tag: "Experiência Maravilhosa",
+    text: "Minha experiência foi maravilhosa. Nunca tinha feito massagem antes e esta experiência me fez ver o quanto me sinto bem com esta prática.",
+    name: "Angélica Finkler de Lima",
+  },
+  {
+    tag: "Profissional Maravilhosa",
+    text: "Profissional maravilhosa! Fiz 2 tratamentos pós-operatório com ela, além de outros cuidados como drenagem na gestação e massagem relaxante por contratura. Adoro o trabalho dela! Profissional muito competente e atenciosa.",
+    name: "Cliente Satisfeita",
+  },
+];
+---
+<section id="depoimentos" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <span class="text-brand-terracotta text-[10px] font-bold uppercase tracking-[0.35em] mb-4 block">
+        Depoimentos
+      </span>
+      <h2 class="text-5xl md:text-6xl mb-0">
+        Quem passou por aqui
+      </h2>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((t, i) => (
+        <div class="testimonial-card bg-[#FDFBF7] rounded-[28px] p-10 border border-brand-gold/10 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col gap-6">
+          <!-- Top row: tag + quote icon -->
+          <div class="flex items-start justify-between">
+            <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-brand-terracotta">
+              {t.tag}
+            </span>
+            <!-- Big decorative quote mark -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="text-brand-gold/25 shrink-0">
+              <path d="M9.333 21.333C7.493 21.333 6 19.84 6 18V14.667C6 10.985 8.985 8 12.667 8h.666v2.667h-.666C10.493 10.667 8.667 12.493 8.667 14.667H12C13.474 14.667 14.667 15.859 14.667 17.333V18C14.667 19.84 13.173 21.333 11.333 21.333H9.333ZM22.667 21.333C20.827 21.333 19.333 19.84 19.333 18V14.667C19.333 10.985 22.319 8 26 8h.667v2.667H26C23.827 10.667 22 12.493 22 14.667H25.333C26.807 14.667 28 15.859 28 17.333V18C28 19.84 26.507 21.333 24.667 21.333H22.667Z" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <!-- Quote text -->
+          <p class="text-brand-ink/70 font-serif italic text-lg leading-relaxed flex-1">
+            "{t.text}"
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-4 pt-2 border-t border-brand-gold/10">
+            <div class="w-9 h-9 rounded-full bg-brand-terracotta/10 text-brand-terracotta flex items-center justify-center font-bold text-sm shrink-0">
+              {t.name.charAt(0)}
+            </div>
+            <span class="text-sm font-medium text-brand-ink/70">{t.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s;
+  }
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  const tCards = document.querySelectorAll('.testimonial-card');
+  const tObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+      }
+    });
+  }, { threshold: 0.15 });
+  tCards.forEach(c => tObs.observe(c));
+</script>

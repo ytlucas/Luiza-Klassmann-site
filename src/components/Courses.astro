@@ -1,0 +1,92 @@
+---
+// Courses section
+---
+<section id="cursos" class="py-20 bg-brand-ink text-white relative overflow-hidden">
+  <!-- Background blobs -->
+  <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+    <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-gold rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-brand-terracotta rounded-full blur-[150px]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-24 items-center">
+      <!-- Left content -->
+      <div class="courses-reveal">
+        <span class="text-brand-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block">
+          Formação Profissional
+        </span>
+        <h2 class="text-5xl md:text-7xl mb-10 leading-[1.1]">
+          Capacite-se com quem é <span class="text-brand-gold italic font-light">referência</span> no mercado.
+        </h2>
+        <p class="text-white/60 text-xl mb-12 leading-relaxed font-light">
+          O Curso de Liberação Miofascial (VIP e Presencial) foi desenvolvido para profissionais que desejam elevar o nível de seus atendimentos e dominar a técnica que mais cresce na massoterapia.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-8 mb-12">
+          {[
+            { label: "Metodologia Prática", icon: "check" },
+            { label: "Certificação VIP", icon: "award" },
+            { label: "Turmas Reduzidas", icon: "users" },
+            { label: "Suporte Vitalício", icon: "heart" },
+          ].map((item) => (
+            <div class="flex items-center gap-3">
+              <svg class="text-brand-gold shrink-0 w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                {item.icon === "check" && <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></>}
+                {item.icon === "award" && <><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></>}
+                {item.icon === "users" && <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>}
+                {item.icon === "heart" && <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>}
+              </svg>
+              <span class="text-sm font-medium uppercase tracking-widest text-white/80">{item.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="#contato"
+          class="inline-block px-12 py-5 bg-brand-gold text-brand-ink rounded-full font-bold text-sm tracking-widest uppercase hover:bg-white transition-all shadow-2xl shadow-brand-gold/20"
+        >
+          Quero ser Aluno(a)
+        </a>
+      </div>
+
+      <!-- Right image -->
+      <div class="courses-reveal relative">
+        <div class="rounded-[50px] overflow-hidden shadow-2xl border-8 border-white/5 group">
+          <img
+            src="https://i.ibb.co/Nd3hQ5Yn/Gemini-Generated-Image-w5m0iiw5m0iiw5m0.png"
+            alt="Aluna segurando certificado de Massoterapia"
+            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            referrerpolicy="no-referrer"
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute -top-10 -right-10 bg-brand-terracotta p-10 rounded-[40px] shadow-2xl transform rotate-6">
+          <p class="text-[10px] font-bold uppercase tracking-widest mb-2 text-white/60">Próxima Turma</p>
+          <p class="text-3xl font-serif italic">Vagas Limitadas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .courses-reveal {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .courses-reveal:last-child {
+    transform: translateX(30px);
+  }
+  .courses-reveal.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+<script>
+  const els = document.querySelectorAll('.courses-reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.2 });
+  els.forEach(e => obs.observe(e));
+</script>
