@@ -1,18 +1,24 @@
 ---
 // Courses section
 const courseImages = [
-  { src: "/curso1.webp", alt: "Formação em Massoterapia - aula prática", pos: "center" },
-  { src: "/curso3.webp", alt: "Curso presencial de massoterapia", pos: "center 30%" },
-  { src: "/curso4.webp", alt: "Turma de formação VIP", pos: "center 30%" },
-  { src: "/curso5.webp", alt: "Técnicas avançadas de massoterapia", pos: "center 30%" },
-  { src: "/curso7.webp", alt: "Aula prática com tutoria personalizada", pos: "center" },
+  { src: "/curso1.avif", alt: "Formação em Massoterapia - aula prática", pos: "center" },
+  { src: "/curso3.avif", alt: "Curso presencial de massoterapia", pos: "center 30%" },
+  { src: "/curso4.avif", alt: "Turma de formação VIP", pos: "center 30%" },
+  { src: "/curso5.avif", alt: "Técnicas avançadas de massoterapia", pos: "center 30%" },
+  { src: "/curso7.avif", alt: "Aula prática com tutoria personalizada", pos: "center" },
 ];
 ---
 <section id="cursos" class="py-12 md:py-20 bg-brand-ink text-white relative overflow-hidden">
-  <!-- Background blobs -->
-  <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none" aria-hidden="true">
-    <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-gold rounded-full blur-[80px] will-change-transform"></div>
-    <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-brand-terracotta rounded-full blur-[80px] will-change-transform"></div>
+  <!-- Background blobs — animated/living -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <!-- Main gold blob — slow drift top-left -->
+    <div class="blob-gold absolute top-[-15%] left-[-8%] w-[65%] h-[65%] rounded-full blur-[90px] opacity-25"></div>
+    <!-- Secondary terracotta blob — slow drift bottom-right -->
+    <div class="blob-terracotta absolute bottom-[-15%] right-[-8%] w-[65%] h-[65%] rounded-full blur-[90px] opacity-20"></div>
+    <!-- Accent gold blob — center, small pulse -->
+    <div class="blob-accent absolute top-[30%] left-[40%] w-[35%] h-[35%] rounded-full blur-[70px] opacity-15"></div>
+    <!-- Shimmer streaks overlay -->
+    <div class="blob-shimmer absolute inset-0 opacity-5"></div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 relative z-10">
