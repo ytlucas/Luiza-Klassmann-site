@@ -32,7 +32,8 @@ const {
     <title>{title}</title>
 
     <!-- Preload hero image for fast LCP -->
-    <link rel="preload" as="image" href="/header.avif" fetchpriority="high" />
+    <link rel="preload" as="image" href="/header.avif" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/fotoProfissional2.avif" media="(max-width: 767px)" fetchpriority="high" />
 
     <!-- Google Fonts — non-blocking load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
