@@ -4,15 +4,15 @@
 
 <section
   id="inicio"
-  class="relative min-h-screen flex items-center pt-20 pb-32 overflow-hidden"
+  class="relative min-h-screen flex items-center pt-24 md:pt-32 overflow-hidden"
 >
   <div class="absolute inset-0 z-0 overflow-hidden">
     <picture class="block w-full h-full">
-      <source srcset="/header.avif" media="(min-width: 768px)" />
+      <source srcset="/HeaderDesktoop.png" media="(min-width: 768px)" />
       <img
         src="/fotoProfissional2.avif"
         alt="Luiza Klassmann Massoterapia - Porto Alegre"
-        class="w-full h-full object-cover hero-bg-zoom"
+        class="w-full h-full object-cover md:object-cover"
         style="object-position: center 30%"
         fetchpriority="high"
         decoding="async"
@@ -20,14 +20,17 @@
         height="1080"
       />
     </picture>
-    <div class="absolute inset-0 bg-black/35"></div>
+    <!-- Mobile overlay (unchanged) and Desktop overlay (gradient) -->
+    <div class="absolute inset-0 bg-black/35 md:bg-transparent md:hero-gradient"></div>
+    <!-- Desktop cinematic grain/glow effects -->
+    <div class="hidden md:block absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20 pointer-events-none mix-blend-overlay"></div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-    <div class="max-w-3xl hero-content">
+    <div class="max-w-3xl md:max-w-2xl lg:max-w-[800px] hero-content">
       <!-- Badge -->
       <div
-        class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-bg/10 backdrop-blur-md text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-6 border border-brand-bg/20"
+        class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-bg/10 backdrop-blur-md text-white text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-6 md:mb-8 border border-brand-bg/20 md:border-brand-gold/30 md:text-[#C5A059]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -48,69 +51,100 @@
 
       <!-- Heading -->
       <h1
-        class="hero-title text-5xl md:text-8xl leading-[1.1] mb-6 tracking-tight text-white font-serif"
+        class="hero-title text-5xl md:text-7xl lg:text-[6rem] leading-[1.05] mb-6 md:mb-8 tracking-tight text-white font-serif"
       >
         Transformando <br />
-        <span class="italic font-light">vidas</span> através <br />
-        do <span class="text-brand-gold">toque.</span>
+        <span class="italic font-light md:text-brand-gold">vidas</span> através <br />
+        do <span class="text-brand-gold md:text-[#e8ce9f]">toque.</span>
       </h1>
 
       <!-- Subtitle -->
       <p
-        class="hero-sub text-lg md:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed font-light"
+        class="hero-sub text-lg md:text-xl text-white/80 md:text-[rgba(255,255,255,0.78)] mb-10 md:mb-12 max-w-2xl leading-relaxed font-light"
       >
-        Especialista em Terapia Manual e Treinamento Físico para uma vida
-        funcional e com qualidade
+        Especialista em Terapia Manual e Treinamento Físico
+        para uma vida funcional e com qualidade.
       </p>
 
-      <!-- CTA Buttons -->
-      <div class="hero-btns flex flex-col sm:flex-row gap-4">
-        <a
-          href="#contato"
-          class="btn-primary px-10 py-4 bg-brand-terracotta text-white rounded-full font-bold text-sm tracking-widest uppercase flex items-center justify-center group"
-        >
-          Agendar Avaliação
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="ml-2 group-hover:translate-x-1 transition-transform duration-300"
-            ><path d="m9 18 6-6-6-6"></path></svg
-          >
-        </a>
-        <a
-          href="#servicos"
-          class="btn-outline px-10 py-4 border-2 border-brand-bg/40 text-white rounded-full font-bold text-sm tracking-widest uppercase flex items-center justify-center"
-        >
-          Ver Serviços
-        </a>
+      <!-- Desktop Glassmorphism Service Cards -->
+      <div class="hidden md:grid grid-cols-3 gap-6 p-5 rounded-[24px] bg-[rgba(255,255,255,0.03)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.08)] shadow-[0_8px_32px_rgba(0,0,0,0.12)] hero-cards mb-10">
+        <!-- Card 1 -->
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold bg-brand-gold/5 shadow-[0_0_15px_rgba(197,160,89,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7"/><path d="M10 4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M6 6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v9.5c0 3.3 2.7 6 6 6h4c3.3 0 6-2.7 6-6V11a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/></svg>
+          </div>
+          <div>
+            <h3 class="text-white text-[13px] font-semibold mb-1 tracking-wide">Terapia Manual</h3>
+            <p class="text-[rgba(255,255,255,0.55)] text-[11px] leading-snug font-light">Alívio da dor e recuperação funcional</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold bg-brand-gold/5 shadow-[0_0_15px_rgba(197,160,89,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <h3 class="text-white text-[13px] font-semibold mb-1 tracking-wide">Exercício Físico</h3>
+            <p class="text-[rgba(255,255,255,0.55)] text-[11px] leading-snug font-light">Movimento inteligente para o seu corpo</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 shrink-0 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold bg-brand-gold/5 shadow-[0_0_15px_rgba(197,160,89,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-white text-[13px] font-semibold mb-1 tracking-wide">Cuidado Integral</h3>
+            <p class="text-[rgba(255,255,255,0.55)] text-[11px] leading-snug font-light">Mais qualidade de vida e bem-estar</p>
+          </div>
+        </div>
       </div>
+
+      <!-- CTA Buttons (Mobile) & Glass Cards (Desktop) container -->
+      <div>
+        <div class="hero-btns flex flex-col sm:flex-row gap-4 mb-12">
+          <a
+            href="#contato"
+            class="btn-primary px-10 py-4 bg-brand-terracotta md:bg-[#B36A52] md:hover:bg-[#C17A62] text-white rounded-full font-bold text-sm tracking-widest uppercase flex items-center justify-center group shadow-xl"
+          >
+            Agendar Avaliação
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="ml-2 group-hover:translate-x-1 transition-transform duration-300"
+              ><path d="m9 18 6-6-6-6"></path></svg
+            >
+          </a>
+          <a
+            href="#servicos"
+            class="btn-outline px-10 py-4 border-2 border-brand-bg/40 md:border-white/20 md:bg-white/5 md:backdrop-blur-sm md:hover:bg-white/10 md:hover:border-white/40 text-white rounded-full font-bold text-sm tracking-widest uppercase flex items-center justify-center"
+          >
+            Ver Serviços
+          </a>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator (Desktop only) -->
+      <div class="hidden md:flex absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-60 hero-cards">
+        <div class="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center p-1">
+          <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+        </div>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-white/70">Role para explorar</span>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  /* ── Background slow zoom ── */
-  .hero-bg-zoom {
-    animation: heroZoom 16s ease-out both;
-    transform-origin: center 30%;
-    will-change: transform;
-    contain: layout;
-  }
-  @keyframes heroZoom {
-    from {
-      transform: scale(1.18);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
+  /* ── Background slow zoom (retained for mobile if desired, but user removed it previously so we leave it out) ── */
 
   /* ── Staggered text entrance ── */
   .hero-badge {
@@ -125,6 +159,10 @@
   .hero-btns {
     animation: fadeUp 0.8s 0.85s ease-out both;
   }
+  .hero-cards {
+    animation: fadeUp 0.9s 1.05s ease-out both;
+  }
+  
   @keyframes fadeUp {
     from {
       opacity: 0;
@@ -153,7 +191,7 @@
     transform: translateY(0) scale(0.97);
   }
 
-  /* ── Outline button — NO grey, uses brand on hover ── */
+  /* ── Outline button ── */
   .btn-outline {
     transition:
       background-color 0.3s,
@@ -169,5 +207,18 @@
   }
   .btn-outline:active {
     transform: translateY(0) scale(0.97);
+  }
+
+  /* ── Desktop Gradient ── */
+  @media (min-width: 768px) {
+    .hero-gradient {
+      background: linear-gradient(
+        90deg,
+        rgba(12, 8, 6, 0.92) 0%,
+        rgba(12, 8, 6, 0.78) 30%,
+        rgba(12, 8, 6, 0.35) 65%,
+        rgba(12, 8, 6, 0.05) 100%
+      );
+    }
   }
 </style>

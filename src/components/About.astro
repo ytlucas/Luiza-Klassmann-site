@@ -2,7 +2,10 @@
 // About section – Luiza is also a mentor
 ---
 
-<section id="sobre" class="py-12 md:py-20 bg-white relative overflow-hidden">
+<section
+  id="sobre"
+  class="pb-12 pt-0 md:pb-20 md:pt-0 bg-white relative overflow-hidden"
+>
   <div
     class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center"
   >
@@ -39,15 +42,27 @@
         class="space-y-8 text-brand-ink/70 leading-relaxed font-light text-lg"
       >
         <p class="mb-4">
-          Sou <strong class="font-bold text-gray-900">Luiza C. Klassmann</strong>, profissional de <strong class="font-bold">Educação Física</strong> há 15 anos e <strong class="font-bold">Massoterapeuta</strong> há quase uma década. Pós-graduada em Saúde Coletiva e Acupuntura em andamento, atualmente divido minha rotina em lecionar no curso de Massoterapia, mentorias individuais e atendimentos clínicos.
+          Sou <strong class="font-bold text-gray-900">Luiza C. Klassmann</strong
+          >, profissional de <strong class="font-bold">Educação Física</strong> há
+          15 anos e <strong class="font-bold">Massoterapeuta</strong> há quase uma
+          década. Pós-graduada em Saúde Coletiva e Acupuntura em andamento, atualmente
+          divido minha rotina em lecionar no curso de Massoterapia, mentorias individuais
+          e atendimentos clínicos.
         </p>
 
         <p class="mb-4">
-          Minha atuação considera o aspecto integral do SER, respeitando individualidades, e utiliza como ferramenta a <strong class="font-bold">Terapia Manual e o movimento corporal</strong> para alcançar uma vida funcional e com qualidade.
+          Minha atuação considera o aspecto integral do SER, respeitando
+          individualidades, e utiliza como ferramenta a <strong
+            class="font-bold">Terapia Manual e o movimento corporal</strong
+          > para alcançar uma vida funcional e com qualidade.
         </p>
 
         <p>
-          <strong class="font-bold">Liberação Miofascial, Drenagem Linfática, Diagnóstico Postural, Auriculoterapia, Ventosaterapia e massagens</strong> são técnicas que fazem parte dos meus atendimentos, bem como discussão e orientação de Treinamento Físico.
+          <strong class="font-bold"
+            >Liberação Miofascial, Drenagem Linfática, Diagnóstico Postural,
+            Auriculoterapia, Ventosaterapia e massagens</strong
+          > são técnicas que fazem parte dos meus atendimentos, bem como discussão
+          e orientação de Treinamento Físico.
         </p>
         <div class="grid grid-cols-2 gap-6 pt-8">
           <!-- Autoridade -->
@@ -186,8 +201,8 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1.5px;
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -201,13 +216,21 @@
     left: 50%;
     width: 250%;
     height: 250%;
-    background: conic-gradient(from 0deg, transparent 70%, var(--snake-color) 100%);
+    background: conic-gradient(
+      from 0deg,
+      transparent 70%,
+      var(--snake-color) 100%
+    );
     transform: translate(-50%, -50%);
     animation: spin-snake 4s linear infinite;
   }
   @keyframes spin-snake {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
   .reveal {
     opacity: 0;

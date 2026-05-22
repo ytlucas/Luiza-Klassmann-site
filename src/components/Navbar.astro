@@ -4,11 +4,11 @@
 
 <nav
   id="navbar"
-  class="fixed w-full z-50 transition-all duration-500 py-6 translate-y-0"
+  class="fixed w-full z-50 transition-all duration-500 py-6 md:py-8 translate-y-0 px-4 md:px-6"
 >
-  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+  <div id="nav-inner" class="max-w-7xl mx-auto px-6 flex justify-between items-center md:grid md:grid-cols-3 md:bg-[rgba(255,255,255,0.04)] md:backdrop-blur-[10px] md:border md:border-[rgba(255,255,255,0.08)] md:rounded-[22px] md:py-3 md:px-8 transition-all duration-300">
     <!-- Logo -->
-    <a href="#inicio" class="group flex items-center">
+    <a href="#inicio" class="group flex items-center md:justify-self-start">
       <img
         src="/logo.avif"
         alt="Luiza Klassmann Logo"
@@ -17,7 +17,7 @@
     </a>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center space-x-10">
+    <div class="hidden md:flex items-center justify-center space-x-8 lg:space-x-12">
       {
         [
           { name: "Início", href: "#inicio" },
@@ -35,9 +35,13 @@
           </a>
         ))
       }
+    </div>
+
+    <!-- Desktop CTA -->
+    <div class="hidden md:flex justify-self-end">
       <a
         href="#contato"
-        class="px-6 py-2.5 bg-brand-terracotta text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-sage transition-all shadow-md"
+        class="px-8 py-3 bg-brand-terracotta/90 hover:bg-brand-terracotta text-white rounded-full text-[11px] font-bold uppercase tracking-widest transition-all shadow-[0_4px_20px_rgba(193,122,98,0.3)] backdrop-blur-sm"
       >
         Agendar
       </a>
@@ -146,21 +150,17 @@
       const scrolled = currentY > 50;
 
       if (scrolled) {
-        navbar?.classList.add(
-          "bg-white/90",
-          "backdrop-blur-xl",
-          "py-3",
-          "shadow-lg",
-        );
-        navbar?.classList.remove("py-6");
+        navbar?.classList.add("py-3");
+        navbar?.classList.remove("py-6", "md:py-8");
+        const navInner = document.getElementById("nav-inner");
+        navInner?.classList.add("bg-white/90", "backdrop-blur-xl", "shadow-lg", "md:border-transparent");
+        navInner?.classList.remove("md:bg-[rgba(255,255,255,0.04)]", "md:backdrop-blur-[10px]", "md:border-[rgba(255,255,255,0.08)]");
       } else {
-        navbar?.classList.remove(
-          "bg-white/90",
-          "backdrop-blur-xl",
-          "py-3",
-          "shadow-lg",
-        );
-        navbar?.classList.add("py-6");
+        navbar?.classList.remove("py-3");
+        navbar?.classList.add("py-6", "md:py-8");
+        const navInner = document.getElementById("nav-inner");
+        navInner?.classList.remove("bg-white/90", "backdrop-blur-xl", "shadow-lg", "md:border-transparent");
+        navInner?.classList.add("md:bg-[rgba(255,255,255,0.04)]", "md:backdrop-blur-[10px]", "md:border-[rgba(255,255,255,0.08)]");
       }
 
       updateLinkColors(scrolled);
