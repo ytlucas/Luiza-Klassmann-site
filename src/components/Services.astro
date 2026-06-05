@@ -49,19 +49,19 @@ const services = [
     imgPosition: "bottom",
   },
   {
-    title: "Auriculoterapia",
-    image: "/auriculoterapia.avif",
-    description:
-      "Técnica complementar que utiliza o pavilhão auricular como área reflexa do corpo e possibilita trabalhar diversas questões de saúde.",
-    tag: "Terapia Integrativa",
-    imgPosition: "top",
-  },
-  {
     title: "Diagnóstico Postural",
     image: "/resultado1.avif",
     description:
       "Avaliação estática e dinâmica da saúde física (postura e movimento). Permite identificar comprometimentos posturais e prescrever exercícios de forma personalizada.",
     tag: "Avaliação",
+    imgPosition: "top",
+  },
+  {
+    title: "Auriculoterapia",
+    image: "/auriculoterapia.jpeg",
+    description:
+      "Técnica complementar que utiliza o pavilhão auricular como área reflexa do corpo e possibilita trabalhar diversas questões de saúde.",
+    tag: "Terapia Integrativa",
     imgPosition: "top",
   },
   {
@@ -164,7 +164,7 @@ const services = [
                     <img
                       src={service.image}
                       alt={service.title}
-                      class={`w-full h-full ${service.imgFit === 'contain' ? 'object-contain bg-[#fdfbf6]' : 'object-cover'} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
+                      class={`w-full h-full ${service.imgFit === "contain" ? "object-contain bg-[#fdfbf6]" : "object-cover"} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
                       referrerpolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
@@ -205,7 +205,7 @@ const services = [
                     <img
                       src={service.image}
                       alt={service.title}
-                      class={`w-full h-full ${service.imgFit === 'contain' ? 'object-contain bg-[#fdfbf6]' : 'object-cover'} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
+                      class={`w-full h-full ${service.imgFit === "contain" ? "object-contain bg-[#fdfbf6]" : "object-cover"} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
                       referrerpolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
@@ -245,7 +245,7 @@ const services = [
                     <img
                       src={service.image}
                       alt={service.title}
-                      class={`w-full h-full ${service.imgFit === 'contain' ? 'object-contain bg-[#fdfbf6]' : 'object-cover'} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
+                      class={`w-full h-full ${service.imgFit === "contain" ? "object-contain bg-[#fdfbf6]" : "object-cover"} transition-transform duration-700 group-hover:scale-110 ${service.imgPosition === "bottom" ? "object-bottom" : service.imgPosition === "center" ? "object-center" : "object-top"}`}
                       referrerpolicy="no-referrer"
                       loading="lazy"
                       decoding="async"
