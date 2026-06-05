@@ -6,7 +6,7 @@
   id="navbar"
   class="fixed w-full z-50 transition-all duration-500 py-6 md:py-8 translate-y-0 px-4 md:px-6"
 >
-  <div id="nav-inner" class="max-w-7xl mx-auto px-6 flex justify-between items-center md:grid md:grid-cols-3 md:bg-[rgba(255,255,255,0.04)] md:backdrop-blur-[10px] md:border md:border-[rgba(255,255,255,0.08)] md:rounded-[22px] md:py-3 md:px-8 transition-all duration-300">
+  <div id="nav-inner" class="max-w-7xl mx-auto px-5 py-2.5 flex justify-between items-center bg-white/75 backdrop-blur-md border border-brand-gold/10 rounded-2xl shadow-sm transition-all duration-300 md:grid md:grid-cols-3 md:bg-[rgba(255,255,255,0.04)] md:backdrop-blur-[10px] md:border md:border-[rgba(255,255,255,0.08)] md:rounded-[22px] md:py-3 md:px-8 md:shadow-none">
     <!-- Logo -->
     <a href="#inicio" class="group flex items-center md:justify-self-start">
       <img
@@ -50,7 +50,7 @@
     <!-- Mobile Toggle -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden text-brand-ink p-2"
+      class="md:hidden text-brand-ink hover:text-brand-terracotta hover:bg-brand-gold/10 active:scale-95 transition-all p-2.5 rounded-full"
       aria-label="Abrir menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -94,9 +94,9 @@
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl overflow-hidden"
+    class="hidden absolute top-full left-4 right-4 bg-white/85 backdrop-blur-2xl shadow-2xl border border-brand-gold/15 rounded-3xl overflow-hidden mt-3 transition-all duration-300"
   >
-    <div class="flex flex-col p-8 space-y-6">
+    <div class="flex flex-col p-6 space-y-4">
       {
         [
           { name: "Início", href: "#inicio" },
@@ -107,7 +107,7 @@
         ].map((link) => (
           <a
             href={link.href}
-            class="mobile-link text-xl font-serif text-brand-ink hover:text-brand-terracotta transition-colors"
+            class="mobile-link text-lg font-serif text-brand-ink hover:text-brand-terracotta transition-colors py-2 px-3 rounded-xl hover:bg-brand-gold/10"
           >
             {link.name}
           </a>
@@ -153,13 +153,18 @@
         navbar?.classList.add("py-3");
         navbar?.classList.remove("py-6", "md:py-8");
         const navInner = document.getElementById("nav-inner");
-        navInner?.classList.add("bg-white/90", "backdrop-blur-xl", "shadow-lg", "md:border-transparent");
-        navInner?.classList.remove("md:bg-[rgba(255,255,255,0.04)]", "md:backdrop-blur-[10px]", "md:border-[rgba(255,255,255,0.08)]");
+        // Apply scrolled style: high opacity glass, gold border, and shadow.
+        navInner?.classList.add("bg-white/90", "backdrop-blur-xl", "shadow-lg", "border-brand-gold/15");
+        navInner?.classList.remove("bg-white/75", "backdrop-blur-md", "border-brand-gold/10", "shadow-sm", "md:bg-[rgba(255,255,255,0.04)]", "md:backdrop-blur-[10px]", "md:border-[rgba(255,255,255,0.08)]");
       } else {
         navbar?.classList.remove("py-3");
         navbar?.classList.add("py-6", "md:py-8");
         const navInner = document.getElementById("nav-inner");
-        navInner?.classList.remove("bg-white/90", "backdrop-blur-xl", "shadow-lg", "md:border-transparent");
+        // Apply unscrolled style: soft glass with lighter border.
+        navInner?.classList.remove("bg-white/90", "backdrop-blur-xl", "shadow-lg", "border-brand-gold/15");
+        navInner?.classList.add("bg-white/75", "backdrop-blur-md", "border-brand-gold/10", "shadow-sm");
+        
+        // Restore desktop transparent glass styles
         navInner?.classList.add("md:bg-[rgba(255,255,255,0.04)]", "md:backdrop-blur-[10px]", "md:border-[rgba(255,255,255,0.08)]");
       }
 
